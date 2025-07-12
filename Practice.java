@@ -7,6 +7,8 @@ public class Practice
         a = a++ + ++a;
         System.out.println(a*b);
 
+        //Hello World
+
 
     }
 }
