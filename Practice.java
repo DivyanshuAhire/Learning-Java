@@ -8,41 +8,40 @@ public class Practice
         System.out.println("Think of any Number");
         int n = Integer.parseInt(sc.nextLine());
         
-
-        System.out.println("Is Even : " + isEven(n));
-        System.out.println("Is Prime : " + isPrime(n));
-        System.out.println("factorial : " + factorial(n));
+        System.out.println(countDividingDigit(n));
     }
 
-    public static boolean isEven(int n)
+    public static int countDividingDigit(int n)
     {
-        return n%2==0;
+        int count =0;
+
+        int Original= n;
+
+        
+        while(n>0){
+
+            int digit=n%10;
+            if(divides(Original, digit))
+            {
+                count++;
+            }
+
+            n=n/10;
+        }
+
+        
+
+        return count;
+
     }
 
-    public static boolean  isPrime(int n)
+    public static Boolean divides(int n, int digit) 
     {
-        if(n<1)
-        {
-            return false;
-
-        }
-        for(int j=2; j<=Math.sqrt(n); j++)
-        {
-            if(n%j==0) return false;
-        }
-        return true;
+        if(digit==0) return false;
+        return n%digit==0;    
     }
 
-    public static int factorial(int n)
-    {
-        int box=1;
-
-        for(int h=n; h>=1; h--)
-        {
-            box = box * h;
-        }
-        return box;
-    }
+    
 }
 
 
