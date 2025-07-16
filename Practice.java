@@ -3,43 +3,51 @@ import java.util.*;
 public class Practice 
 {   public static void main(String[] args) 
     {
+
+        //long start = System.currentTimeMillis();//timer starts
+
+
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Think of any Number");
-        int n = Integer.parseInt(sc.nextLine());
+        int sizeArray = Integer.parseInt(sc.nextLine());
         
-        System.out.println(countDividingDigit(n));
-    }
+        int array[] = new int[sizeArray];
+        int tempArray = 0;
 
-    public static int countDividingDigit(int n)
-    {
-        int count =0;
+        for (int i =0; i < array.length ; i++) {
+            
+          array[i]=Integer.parseInt(sc.nextLine());
 
-        int Original= n;
-
-        
-        while(n>0){
-
-            int digit=n%10;
-            if(divides(Original, digit))
-            {
-                count++;
-            }
-
-            n=n/10;
         }
 
-        
 
-        return count;
 
+
+
+        for(int i=0; i<array.length; i++)
+        {
+
+          
+          
+            tempArray=tempArray+array[i];
+
+            
+          
+
+        }
+
+        System.out.println("Avg is " + tempArray/array.length);
+
+        System.out.println("Sum of Array is " + tempArray);
+
+
+    
+       //long end = System.currentTimeMillis();//timer ends
+       //System.out.println("Time taken: " + (end - start) + " ms");
     }
 
-    public static Boolean divides(int n, int digit) 
-    {
-        if(digit==0) return false;
-        return n%digit==0;    
-    }
+    
 
     
 }
