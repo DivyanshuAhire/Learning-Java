@@ -1,55 +1,51 @@
 import java.util.*;
 
-public class Practice 
-{   public static void main(String[] args) 
-    {
-
-        //long start = System.currentTimeMillis();//timer starts
-
-
+public class Practice {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Think of any Number");
-        int sizeArray = Integer.parseInt(sc.nextLine());
-        
-        int array[] = new int[sizeArray];
-        int tempArray = 0;
+        // Array Setup
+        System.out.println("How many Rows u  want? ");
+        int rows = Integer.parseInt(sc.nextLine());
+        System.out.println("How Many Coloumns U want? ");
+        int coloumns= Integer.parseInt(sc.nextLine());
 
-        for (int i =0; i < array.length ; i++) {
-            
-          array[i]=Integer.parseInt(sc.nextLine());
-
-        }
+        int[][] matrix = new int[rows][coloumns];
 
 
-
-
-
-        for(int i=0; i<array.length; i++)
+        //Taking Input For 2D Array
+        for(int i=0; i<rows; i++)
         {
-
-          
-          
-            tempArray=tempArray+array[i];
-
-            
-          
-
+            for(int j=0; j<coloumns; j++)
+            {
+                matrix[i][j]=Integer.parseInt(sc.nextLine());
+            }
         }
 
-        System.out.println("Avg is " + tempArray/array.length);
+        //printing the Array
 
-        System.out.println("Sum of Array is " + tempArray);
+        for(int i=0; i<rows; i++)
+        {
+            for(int j=0; j<coloumns; j++)
+            {
+               System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
 
+        System.out.println("For What Number to Hunt ?");
+        int target = Integer.parseInt(sc.nextLine());
 
-    
-       //long end = System.currentTimeMillis();//timer ends
-       //System.out.println("Time taken: " + (end - start) + " ms");
+        for(int i=0; i<rows; i++)
+        {
+            for(int j=0; j<coloumns; j++)
+            {
+                if(matrix[i][j]==target)
+                {
+                    System.out.println("Target Found at Row " + i + " Coloumn " + j);
+                }
+            }
+        }
+       
     }
-
-    
-
-    
 }
-
-
