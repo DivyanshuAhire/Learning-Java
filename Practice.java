@@ -4,48 +4,77 @@ public class Practice {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Array Setup
-        System.out.println("How many Rows u  want? ");
-        int rows = Integer.parseInt(sc.nextLine());
-        System.out.println("How Many Coloumns U want? ");
-        int coloumns= Integer.parseInt(sc.nextLine());
+        //taking basic information for Array;
+        System.out.println("Enter Number of Rows");
+        int rows = sc.nextInt();
+        System.out.println("Enter Number of Columns");
+        int columns = sc.nextInt();
 
-        int[][] matrix = new int[rows][coloumns];
+       
+        
 
 
-        //Taking Input For 2D Array
+        //Edge Case Check
+        if(rows<0 || columns<0)
+        {
+            System.out.println("invalid Matrix ");
+            return;
+        }
+        else if (rows == 0 || columns==0)
+        {
+            System.out.println("Its a Zero Matrix");
+            return;
+        }
+        //Initialising the Array
+         int[][] array = new int[rows][columns];
+
+        //Taking Array as User Input
+        System.out.println("Plz Enter Values Of Array");
         for(int i=0; i<rows; i++)
         {
-            for(int j=0; j<coloumns; j++)
+            for(int j=0; j<columns; j++)
             {
-                matrix[i][j]=Integer.parseInt(sc.nextLine());
+                array[i][j]=sc.nextInt();
+
             }
+
         }
 
-        //printing the Array
-
+        
+        
+        
+        
+        //Printing Sum Of Rows
         for(int i=0; i<rows; i++)
         {
-            for(int j=0; j<coloumns; j++)
+            int rowSum=0;
+            for(int j=0; j<columns; j++)
             {
-               System.out.print(matrix[i][j] + " ");
+                rowSum=rowSum+array[i][j];
+                
             }
-            System.out.println();
+            System.out.println("Sum of Row " + (i+1) + " = " + rowSum);
+
+            
+
         }
 
-        System.out.println("For What Number to Hunt ?");
-        int target = Integer.parseInt(sc.nextLine());
 
-        for(int i=0; i<rows; i++)
+        //Printing Sum coloumn wise
+        for(int i=0; i<columns; i++)
         {
-            for(int j=0; j<coloumns; j++)
+            int colSum=0;
+            for(int j=0; j<rows; j++)
             {
-                if(matrix[i][j]==target)
-                {
-                    System.out.println("Target Found at Row " + i + " Coloumn " + j);
-                }
+                colSum=colSum+array[j][i];
             }
+
+            System.out.println("Columns " + (i+1)+" = " + colSum);
         }
+
+      
+
+
        
     }
 }
